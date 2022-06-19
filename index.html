@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickWhatsApp</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body
+    class="flex justify-content-center align-items-center flex-direction-column"
+  >
+    <div class="title mb-20">
+      <h1 class="flex justify-content-center mb-10">QuickWhatsApp</h1>
+      <p>Inicie uma conversa no WhatsApp sem adicionar aos contatos.</p>
+    </div>
+    <div>
+      <input
+        class="phone flex justify-content-center mb-20"
+        type="tel"
+        id="phone"
+        pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}"
+        placeholder="+55 -- ----- ----"
+      />
+      <button onclick="quick()">Iniciar conversa</button>
+    </div>
+
+    <script src="https://unpkg.com/imask"></script>
+    <script>
+      const element = document.getElementById("phone");
+      const maskOptions = {
+        mask: "+{55} 00 00000 0000",
+      };
+      const mask = IMask(element, maskOptions);
+
+      function clean(num) {
+        return num.replace(/\D+/g, "");
+      }
+
+      function detectDevice() {
+        const toMatch = [
+          /Android/i,
+          /webOS/i,
+          /iPhone/i,
+          /iPad/i,
+          /iPod/i,
+          /BlackBerry/i,
+          /Windows Phone/i,
+        ];
+
+        return toMatch.some((toMatchItem) => {
+          return navigator.userAgent.match(toMatchItem);
+        });
+      }
+
+      function quick() {
+        const phone = document.getElementById("phone").value;
+        if (clean(phone).length === 13) {
+          if (detectDevice()) {
+            window.open(`https://api.whatsapp.com/send/?phone=${clean(phone)}`);
+          } else {
+            window.open(`https://web.whatsapp.com/send?phone=${clean(phone)}`);
+          }
+        } else {
+          alert("Informe um número de WhatsApp");
+        }
+      }
+    </script>
+  </body>
+</html>

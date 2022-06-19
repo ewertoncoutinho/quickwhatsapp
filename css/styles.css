@@ -1,0 +1,114 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+    height: 100vh;
+    background-color: var(--white-chocolate);
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+:root {
+    --white-chocolate: #ECE5DD;
+    --ufo-green: #25D366;
+    --bangladesh-green: #075E54;
+    --gray: #777777;
+}
+input{
+    border: solid var(--white-chocolate) 2px;
+    outline: none;
+    color: var(--gray);
+    font-size: 1.3rem;
+    width: 280px;
+    border-radius: 10px;
+    padding: 0 10px;
+    height: 50px;
+    background-color: white;
+    border-radius: 10px;
+    transition: border 1s ease;
+}
+input:focus{
+    border: solid var(--ufo-green) 2px;
+}
+button{
+    margin: 0;
+    border: none;
+    color: white;
+    background-color: var(--ufo-green);
+    height: 50px;
+    width: 300px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.flex{
+    display: flex;
+}
+.justify-content-center{
+    justify-content: center;
+}
+.align-items-center{
+    align-items: center;
+}
+.flex-direction-column{
+    flex-direction: column;
+}
+.mb-10{
+    margin-bottom: 10px;
+}
+.mb-20{
+    margin-bottom: 20px;
+}
+.title{
+    width: 300px;
+}
+.title h1{
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--ufo-green);
+}
+.title p{
+    text-align: center;
+    color: var(--bangladesh-green);
+}
