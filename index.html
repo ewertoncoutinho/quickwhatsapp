@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#25d366" />
     <title>QuickWhatsApp</title>
+    <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset200802.css" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body
@@ -24,47 +26,7 @@
       />
       <button onclick="quick()">Iniciar conversa</button>
     </div>
-
     <script src="https://unpkg.com/imask"></script>
-    <script>
-      const element = document.getElementById("phone");
-      const maskOptions = {
-        mask: "+{55} 00 00000 0000",
-      };
-      const mask = IMask(element, maskOptions);
-
-      function clean(num) {
-        return num.replace(/\D+/g, "");
-      }
-
-      function detectDevice() {
-        const toMatch = [
-          /Android/i,
-          /webOS/i,
-          /iPhone/i,
-          /iPad/i,
-          /iPod/i,
-          /BlackBerry/i,
-          /Windows Phone/i,
-        ];
-
-        return toMatch.some((toMatchItem) => {
-          return navigator.userAgent.match(toMatchItem);
-        });
-      }
-
-      function quick() {
-        const phone = document.getElementById("phone").value;
-        if (clean(phone).length === 13) {
-          if (detectDevice()) {
-            window.open(`https://api.whatsapp.com/send/?phone=${clean(phone)}`);
-          } else {
-            window.open(`https://web.whatsapp.com/send?phone=${clean(phone)}`);
-          }
-        } else {
-          alert("Informe um número de WhatsApp");
-        }
-      }
-    </script>
+    <script src="js/main.js"></script>
   </body>
 </html>
