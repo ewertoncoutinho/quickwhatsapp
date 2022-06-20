@@ -1,8 +1,8 @@
-const element = document.getElementById("phone");
+const phone = document.getElementById("phone");
 const maskOptions = {
   mask: "+{55} 00 00000 0000",
 };
-const mask = IMask(element, maskOptions);
+const mask = IMask(phone, maskOptions);
 
 function clean(num) {
   return num.replace(/\D+/g, "");
@@ -25,12 +25,12 @@ function detectDevice() {
 }
 
 function quick() {
-  const phone = clean(document.getElementById("phone").value);
-  if (phone.length === 13) {
+  let whatsapp = clean(phone.value);
+  if (whatsapp.length === 13) {
     if (detectDevice()) {
-      window.open(`https://api.whatsapp.com/send/?phone=${phone}`);
+      window.open(`https://api.whatsapp.com/send/?phone=${whatsapp}`);
     } else {
-      window.open(`https://web.whatsapp.com/send?phone=${phone}`);
+      window.open(`https://web.whatsapp.com/send?phone=${whatsapp}`);
     }
   } else {
     alert("Informe um número de WhatsApp");
