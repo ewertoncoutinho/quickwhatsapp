@@ -18,14 +18,13 @@ function detectDevice() {
     /BlackBerry/i,
     /Windows Phone/i,
   ];
-
   return toMatch.some((toMatchItem) => {
     return navigator.userAgent.match(toMatchItem);
   });
 }
 
 function quick() {
-  let whatsapp = clean(phone.value);
+  const whatsapp = clean(phone.value);
   if (whatsapp.length === 13) {
     if (detectDevice()) {
       window.open(`https://api.whatsapp.com/send/?phone=${whatsapp}`);
